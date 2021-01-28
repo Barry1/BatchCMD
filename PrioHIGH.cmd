@@ -8,4 +8,4 @@ REM 32768   Above normal
 REM 32      Normal
 REM 16384   Below normal
 REM 64      Low
-wmic process where name="%1" call setpriority High
+wmic process where name="%1" call setpriority 128

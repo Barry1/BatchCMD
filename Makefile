@@ -56,13 +56,13 @@ inxiprep:
 	sudo nice apt-get install -y ipmitool lvm2 mdadm smartmontools upower freeipmi-tools bluez wmctrl libjson-xs-perl libjson-xs-perl libxml-dumper-perl
 
 sysprep:
-	sudo nice apt install -y python3 \
+	sudo nice apt-get install -y python3 \
 		pandoc texlive-xetex texlive-latex-recommended lyx chktex lacheck \
 		chrony conky-all needrestart needrestart-session apt-file \
                 pandoc-plantuml-filter
 
 pythonprep:
-	sudo nice python3 -m pip uninstall --quiet --yes typing
+	-sudo nice python3 -m pip uninstall --quiet --yes typing
 	sudo nice python3 -m pip install --quiet --upgrade \
 		joblib pandas numpy sympy tqdm \
 		psutil scipy bokeh matplotlib \
@@ -86,4 +86,3 @@ jupyterprep:
 
 bashcompletionprep: sysprep
 	echo eval "$$(pandoc --bash-completion)" > ~/.bashrc
-  

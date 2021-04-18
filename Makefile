@@ -3,6 +3,7 @@
 # https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets
 # https://devhints.io/makefile
 # https://style-guides.readthedocs.io/en/latest/makefile.html
+# GREAT IDEA https://swcarpentry.github.io/make-novice/08-self-doc/index.html, archived unter https://archive.is/5Y9s7 and https://web.archive.org/web/20210418110745/https://swcarpentry.github.io/make-novice/08-self-doc/index.html
 
 .PHONY: all pip apt nasprep nascheck syscheck sysprep pythonprep inxiprep syscheckmin sysconf
 .SUBFIXES: .md .pdf

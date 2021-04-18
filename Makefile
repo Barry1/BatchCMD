@@ -53,7 +53,7 @@ syscheck:
 #inxi --color --full --memory --network-advanced --repos --recommends --processes --flags # -v 8
 
 inxiprep:
-	sudo nice apt install -y ipmitool lvm2 mdadm smartmontools upower freeipmi-tools bluez wmctrl libjson-xs-perl libjson-xs-perl libxml-dumper-perl
+	sudo nice apt-get install -y ipmitool lvm2 mdadm smartmontools upower freeipmi-tools bluez wmctrl libjson-xs-perl libjson-xs-perl libxml-dumper-perl
 
 sysprep:
 	sudo nice apt install -y python3 \
@@ -66,11 +66,11 @@ pythonprep:
 	sudo nice python3 -m pip install --quiet --upgrade \
 		joblib pandas numpy sympy tqdm \
 		psutil scipy bokeh matplotlib \
-		dask black autopep8 python-utils \
+		black autopep8 python-utils \
 		pylint cython mypy flake8 isort
 
 pythonprepext:
-	sudo nice python3 -m pip install --upgrade vaex
+	sudo nice python3 -m pip install --upgrade vaex dask mypy-extensions nbformat
 
 jupyterprep:
 	sudo nice python3 -m pip install --upgrade jupyterlab
@@ -84,6 +84,6 @@ jupyterprep:
 		--from=gfm+definition_lists+pipe_tables+pandoc_title_block+yaml_metadata_block+smart \
 		--output=$@ $< 
 
-bashcompletionprep:
+bashcompletionprep: sysprep
 	echo eval "$$(pandoc --bash-completion)" > ~/.bashrc
   

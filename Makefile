@@ -70,7 +70,7 @@ pythonprep:
 		pylint cython mypy flake8 isort
 
 pythonprepext:
-	sudo nice python3 -m pip install --upgrade vaex dask mypy-extensions nbformat
+	sudo nice python3 -m pip install --upgrade vaex dask mypy-extensions nbformat widgetsnbextension jupyterlab-widgets ipydatawidgets ipywidgets
 
 jupyterprep:
 	sudo nice python3 -m pip install --upgrade jupyterlab

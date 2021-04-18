@@ -1,6 +1,9 @@
 #!/usr/bin/make -f 
 
 # https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets
+# https://devhints.io/makefile
+# https://style-guides.readthedocs.io/en/latest/makefile.html
+
 .PHONY: all pip apt nasprep nascheck syscheck sysprep pythonprep inxiprep syscheckmin sysconf
 .SUBFIXES: .md .pdf
 

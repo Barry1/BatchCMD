@@ -63,7 +63,7 @@ sysprep:
 	sudo nice apt-get install -y python3 \
 		pandoc texlive-xetex texlive-latex-recommended lyx chktex lacheck \
 		chrony conky-all needrestart needrestart-session apt-file \
-                pandoc-plantuml-filter
+                
 
 pythonprep:
 	-sudo nice python3 -m pip uninstall --quiet --yes typing
@@ -71,7 +71,8 @@ pythonprep:
 		joblib pandas numpy sympy tqdm \
 		psutil scipy bokeh matplotlib \
 		black autopep8 python-utils \
-		pylint cython mypy flake8 isort
+		pylint cython mypy flake8 isort \
+		pandoc-plantuml-filter
 
 pythonprepext:
 	sudo nice python3 -m pip install --upgrade vaex dask mypy-extensions nbformat widgetsnbextension jupyterlab-widgets ipydatawidgets ipywidgets

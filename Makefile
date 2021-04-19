@@ -23,7 +23,8 @@ nascheck: nasprep
 	@echo -e \\n\\t\\tNAS HDD 4
 	@ssh admin@ebelnas get_hd_smartinfo -d 4
 	@echo -e \\n\\t\\tNAS hdparm
-	@ssh admin@ebelnas hdparm -t /dev/hd? /dev/sd?
+#	@ssh admin@ebelnas hdparm -t /dev/hd? /dev/sd?
+	@ssh admin@ebelnas hdparm -t /dev/sd{a,b,c,d}
 	@echo -e \\n\\t\\tNAS mdstat
 	@ssh admin@ebelnas cat /proc/mdstat
 	@ssh admin@ebelnas uptime

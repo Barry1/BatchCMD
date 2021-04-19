@@ -64,9 +64,9 @@ inxiprep:
 sysprep:
 	sudo nice apt-get install -y python3 \
 		pandoc texlive-xetex texlive-latex-recommended lyx chktex lacheck \
-		chrony conky-all needrestart needrestart-session apt-file openssh-client bash-completion
-                
-
+		chrony conky-all needrestart needrestart-session apt-file \
+		openssh-client bash-completion bashtop
+		
 pythonprep:
 	-sudo nice python3 -m pip uninstall --quiet --yes typing
 	sudo nice python3 -m pip install --quiet --upgrade \

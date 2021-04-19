@@ -42,6 +42,8 @@ sysconf: sysprep
 	@echo 'pool de.pool.ntp.org iburst' | sudo tee --append
 	/etc/chrony/sources.d/basti.sources > /dev/null
 	sudo chronyc reload sources
+	#something for and
+	#something for sudo
 
 syscheckmin:
 	@tput smso
@@ -65,7 +67,9 @@ sysprep:
 	sudo nice apt-get install -y python3 \
 		pandoc texlive-xetex texlive-latex-recommended lyx chktex lacheck \
 		chrony conky-all needrestart needrestart-session apt-file \
-		openssh-client bash-completion bashtop
+		openssh-client bash-completion bashtop \
+		sudo \
+		and # auto-nice-deamon
 		
 pythonprep:
 	-sudo nice python3 -m pip uninstall --quiet --yes typing

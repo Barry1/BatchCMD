@@ -57,12 +57,14 @@ syscheck:
 #inxi --color --full --memory --network-advanced --repos --recommends --processes --flags # -v 8
 
 inxiprep:
-	sudo nice apt-get install -y ipmitool lvm2 mdadm smartmontools upower freeipmi-tools bluez wmctrl libjson-xs-perl libjson-xs-perl libxml-dumper-perl
+	sudo nice apt-get install -y ipmitool lvm2 mdadm smartmontools upower \
+	     freeipmi-tools bluez wmctrl libjson-xs-perl libjson-xs-perl \
+	     libxml-dumper-perl inxi
 
 sysprep:
 	sudo nice apt-get install -y python3 \
 		pandoc texlive-xetex texlive-latex-recommended lyx chktex lacheck \
-		chrony conky-all needrestart needrestart-session apt-file \
+		chrony conky-all needrestart needrestart-session apt-file
                 
 
 pythonprep:

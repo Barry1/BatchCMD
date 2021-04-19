@@ -14,19 +14,19 @@ MAKEFLAGS = --always-make --jobs --max-load=3 --output-sync
 daily: pip apt syscheckmin nascheck
 
 nascheck: nasprep
-	echo -e \\n\\t\\tNAS HDD 1
-	ssh admin@ebelnas get_hd_smartinfo -d 1
-	echo -e \\n\\t\\tNAS HDD 2
-	ssh admin@ebelnas get_hd_smartinfo -d 2
-	echo -e \\n\\t\\tNAS HDD 3
-	ssh admin@ebelnas get_hd_smartinfo -d 3
-	echo -e \\n\\t\\tNAS HDD 4
-	ssh admin@ebelnas get_hd_smartinfo -d 4
-	echo -e \\n\\t\\tNAS hdparm
-	ssh admin@ebelnas hdparm -t /dev/sd[a-d]
-	echo -e \\n\\t\\tNAS mdstat
-	ssh admin@ebelnas cat /proc/mdstat
-	ssh admin@ebelnas uptime
+	@echo -e \\n\\t\\tNAS HDD 1
+	@ssh admin@ebelnas get_hd_smartinfo -d 1
+	@echo -e \\n\\t\\tNAS HDD 2
+	@ssh admin@ebelnas get_hd_smartinfo -d 2
+	@echo -e \\n\\t\\tNAS HDD 3
+	@ssh admin@ebelnas get_hd_smartinfo -d 3
+	@echo -e \\n\\t\\tNAS HDD 4
+	@ssh admin@ebelnas get_hd_smartinfo -d 4
+	@echo -e \\n\\t\\tNAS hdparm
+	@ssh admin@ebelnas hdparm -t /dev/sd{a,b,c,d}
+	@echo -e \\n\\t\\tNAS mdstat
+	@ssh admin@ebelnas cat /proc/mdstat
+	@ssh admin@ebelnas uptime
 
 nasprep:
 	ssh-copy-id -n admin@ebelnas

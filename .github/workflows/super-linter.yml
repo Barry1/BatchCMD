@@ -8,8 +8,7 @@
 # https://github.com/github/super-linter
 name: Lint Code Base
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 #  push:
 #    branches: ["main", "master"]
 #  pull_request:
@@ -17,19 +16,35 @@ on:
 jobs:
   run-lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
     steps:
+      #https://github.com/marketplace/actions/checkout
       - name: Checkout code
-        #https://github.com/marketplace/actions/checkout
-        uses: actions/checkout@v2.5.0
+        uses: actions/checkout@v3.2.0
         #uses: actions/checkout@latest
         with:
           # Full git history is needed to get a proper list
           # of changed files within `super-linter`
           fetch-depth: 0
-
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4.4.0
+        #uses: actions/setup-python@latest
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Try to install own versions
+        run: |
+          python3 -m pip install --upgrade isort black pylint flake8
+      #      - name: Show Python Version
+      #        run: >
+      #          python3 --version
+      #      - name: Print Python location
+      #        run: >
+      #          echo "PyPATH=$(which python3)" >> $GITHUB_OUTPUT
+      #        id: PythonLocation
       - name: Lint Code Base
         #https://github.com/marketplace/actions/super-linter
-        #uses: github/super-linter@v4.9.7
         uses: github/super-linter@latest
         env:
           VALIDATE_ALL_CODEBASE: true
@@ -38,3 +53,4 @@ jobs:
           LINTER_RULES_PATH: /
           PYTHON_BLACK_CONFIG_FILE: ./pyproject.toml
           PYTHON_ISORT_CONFIG_FILE: ./pyproject.toml
+#          pythonLocation: ${{ steps.PythonLocation.outputs.PyPATH }}
